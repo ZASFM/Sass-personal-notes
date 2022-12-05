@@ -11,6 +11,14 @@ css variables
 //scss functions we can 
 @function weight($weight-name){
    @return map-get($font-weights , $weight-name ) 
+};
+
+//mixins: i can use a mix in that contains a piece of code and then use that mixin iin every component that need that exact code:  
+@mixin flexCenter($direction) {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: $direction;
 }
 
 body{
@@ -19,6 +27,7 @@ body{
 }
 //Nesting with sass: you can have varois elements nested bwtween
 .main{
+   @include flexCenter(column);
    width: 80%;
    margin:0 auto;
    #{&}-paragraph{
