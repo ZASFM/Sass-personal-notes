@@ -21,6 +21,19 @@ css variables
    flex-direction: $direction;
 }
 
+@mixin theme($light-theme:true) {
+   @if $light-theme {
+      background-color: lighten($secondary, 100%);
+      color: darken($third, 100%);
+   }
+}
+
+@mixin mobile{
+   @media(max-width:$mobile){
+      @content
+   }
+}
+
 body{
    background-color: $primary;
    font-weight: map-get($font-weights,bold );
@@ -39,4 +52,12 @@ body{
          color:black;
       }
    }
+   //here im invokinig my mexin and setting the content ot be flex:row and since the media is already declared it will apply it when the size of screen decas below 800px
+   @include mobile{
+      flex-direction: row;
+   }
+}
+
+.light{
+   @include theme($light-theme:false)
 }
