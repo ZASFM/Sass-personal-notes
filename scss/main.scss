@@ -1,17 +1,18 @@
+//Patial scss files: this will automaitcally import all the code from _resets and wil be compiled into the main.css 
+@import './resets';
+@import './variables';
 /* 
 css variables 
 :root{
    --primary:#000;
 } */
-/*Sccs variables*/
-$primary:red;
-$secondary:white;
-//maps:
-$font-weights:(
-   "regular":400,
-   "medium":500,
-   "bold":700,
-);
+/*Sccs variables, we can also get them inside a _variables and import them*/
+
+//scss functions we can 
+@function weight($weight-name){
+   @return map-get($font-weights , $weight-name ) 
+}
+
 body{
    background-color: $primary;
    font-weight: map-get($font-weights,bold );
@@ -23,6 +24,8 @@ body{
    #{&}-paragraph{
       color:$secondary;
       font-weight: map-get($font-weights , regular );
+      //we can also use a function to the the font-weight: 
+      font-weight: weight(bold);
       &:hover{
          color:black;
       }

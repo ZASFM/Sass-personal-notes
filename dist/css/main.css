@@ -1,9 +1,16 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/*Sccs variables, we can also get them inside a _variables and import them*/
 /* 
 css variables 
 :root{
    --primary:#000;
 } */
-/*Sccs variables*/
+/*Sccs variables, we can also get them inside a _variables and import them*/
 body {
   background-color: red;
   font-weight: 700;
@@ -16,6 +23,7 @@ body {
 .main .main-paragraph {
   color: white;
   font-weight: 400;
+  font-weight: 700;
 }
 .main .main-paragraph:hover {
   color: black;
