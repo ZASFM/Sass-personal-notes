@@ -1,3 +1,30 @@
+/* 
+css variables 
+:root{
+   --primary:#000;
+} */
+/*Sccs variables*/
+$primary:red;
+$secondary:white;
+//maps:
+$font-weights:(
+   "regular":400,
+   "medium":500,
+   "bold":700,
+);
 body{
-   background-color: red;
+   background-color: $primary;
+   font-weight: map-get($font-weights,bold );
+}
+//Nesting with sass: you can have varois elements nested bwtween
+.main{
+   width: 80%;
+   margin:0 auto;
+   #{&}-paragraph{
+      color:$secondary;
+      font-weight: map-get($font-weights , regular );
+      &:hover{
+         color:black;
+      }
+   }
 }

@@ -1,3 +1,22 @@
+/* 
+css variables 
+:root{
+   --primary:#000;
+} */
+/*Sccs variables*/
 body {
   background-color: red;
+  font-weight: 700;
+}
+
+.main {
+  width: 80%;
+  margin: 0 auto;
+}
+.main .main-paragraph {
+  color: white;
+  font-weight: 400;
+}
+.main .main-paragraph:hover {
+  color: black;
 }/*# sourceMappingURL=main.css.map */
