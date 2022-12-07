@@ -14,17 +14,17 @@ css variables
 };
 
 //mixins: i can use a mix in that contains a piece of code and then use that mixin iin every component that need that exact code:  
-@mixin flexCenter($direction) {
+@mixin flexCenter($direction){
    display: flex;
    justify-content: center;
    align-items: center;
    flex-direction: $direction;
 }
 
-@mixin theme($light-theme:true) {
-   @if $light-theme {
-      background-color: lighten($secondary, 100%);
-      color: darken($third, 100%);
+@mixin theme($light-theme:true){
+   @if $light-theme{
+      background-color:lighten($third,100%);
+      color:darken($secondary,100%);
    }
 }
 
@@ -36,14 +36,15 @@ css variables
 
 body{
    background-color: $primary;
-   font-weight: map-get($font-weights,bold );
+   font-weight: map-get($font-weights , normal );
 }
 //Nesting with sass: you can have varois elements nested bwtween
 .main{
    @include flexCenter(column);
-   width: 80%;
+   /*Operation can be done by just + - * / without using calc()*/
+   width: 80%-40%;
    margin:0 auto;
-   #{&}-paragraph{
+   #{&}-paragraph1{
       color:$secondary;
       font-weight: map-get($font-weights , regular );
       //we can also use a function to the the font-weight: 
@@ -52,11 +53,19 @@ body{
          color:black;
       }
    }
+   /*So using extend I can get the properties form -main-paragraph1 and put them here and even overwrite them*/
+   #{&}-paragraph2{
+      @extend .main-paragraph1;
+      &:hover{
+         color:$primary;
+      }
+   }
    //here im invokinig my mexin and setting the content ot be flex:row and since the media is already declared it will apply it when the size of screen decas below 800px
    @include mobile{
       flex-direction: row;
    }
 }
+
 
 .light{
    @include theme($light-theme:false)
